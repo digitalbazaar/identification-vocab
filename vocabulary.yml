@@ -34,12 +34,12 @@ ontology:
       identification documents, making it easier for organizations to understand
       and manage this information effectively.
 class:
-  - id: EmploymentEligibilityVerificationCredential
-    label: Employment Eligibility Verification Credential
+  - id: IdentificationDocumentCredential
+    label: Identification Document Credential
     comment: >-
-      A credential that verifies the eligibility of an individual to be employed
-      in a particular country.
-    context: https://w3id.org/employment/v1rc1
+      A credential that expresses identification information for a particular
+      person that is issued by an authority of some sort.
+    context: https://w3id.org/identification/v1rc1
     example:
       - label: >-
           A basic example of the identification document credential expressed as
