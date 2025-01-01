@@ -1,0 +1,250 @@
+vocab:
+  id: id
+  value: https://w3id.org/identification#
+prefix:
+  - id: cred
+    value: https://www.w3.org/2018/credentials#
+ontology:
+  - property: dc:title
+    value: Identification Document Vocabulary
+  - property: dc:description
+    value: |-
+      <div>
+          <h2>Introduction to the Identification Document Vocabulary</h2>
+          <p>The Identification Document Vocabulary is a helpful tool for organizing information related to various identification documents like passports, driver's licenses, and national IDs. In today's world, where we rely heavily on these documents for verification and identification, having a clear and consistent way to describe them is very important. This vocabulary makes it easier to share and understand the details about these documents.</p>
+
+          <p>One of the key benefits of using this vocabulary is that it promotes better communication between different organizations. For example, banks, government agencies, and travel companies all need to verify the identity of individuals. By using a common vocabulary, these organizations can reduce misunderstandings and make processes more efficient.</p>
+
+          <p>Many market verticals can benefit from employing the Identification Document Vocabulary. The financial sector, including banks and insurance companies, often requires identification verification to prevent fraud. Government agencies also need clear information about identification documents to maintain security and provide services effectively. Travel and hospitality industries, such as airlines and hotels, can streamline their check-in processes using this vocabulary.</p>
+
+          <p>There are many use cases for the Identification Document Vocabulary. For instance, when a person applies for a loan, the bank can use this vocabulary to collect and verify necessary information from their identification documents. Similarly, during airport check-ins, airline staff can refer to the vocabulary to ensure that all required details are captured accurately.</p>
+
+          <p>To make the most of this vocabulary, organizations must understand its requirements. They need to ensure that their systems can incorporate this standardized vocabulary into their processes. Training staff on how to use it effectively is also crucial to maximize its benefits and ensure smooth operations.</p>
+
+          <p>In conclusion, the Identification Document Vocabulary is a valuable resource for various sectors that deal with identification verification. It helps improve communication, efficiency, and security, making it easier for organizations to serve their customers and meet regulatory requirements.</p>
+      </div>
+  - property: dc:abstract
+    value: >-
+      The Identification Document Vocabulary is a set of standard terms and
+      definitions used to describe different types of identification documents,
+      such as passports and driver's licenses. It helps organize important
+      information related to these documents, including details about the
+      holder, such as their name, date of birth, and expiration date. This
+      vocabulary aims to improve communication and data sharing about
+      identification documents, making it easier for organizations to understand
+      and manage this information effectively.
+class:
+  - id: IdentificationDocument
+    label: Identification Document
+    comment: >-
+      A document that serves to verify the identity of an individual, such as a
+      passport or a driver's license.
+    context: https://w3id.org/identification/v1rc1
+    example:
+      - label: >-
+          A basic example of the IdentificationDocument class expressed as
+          JSON-LD.
+        json: |-
+          {
+            "@context": "https://w3id.org/identification/v1rc1",
+            "type": "IdentificationDocument",
+            "name": "Utopia Driver's License",
+            "documentNumber": "U123456789",
+            "validUntil": "2025-12-31"
+            "issuer": {
+              "id": "did:web:dmv.utopia.example",
+              "name": "Utopia Department of Motor Vehicles"
+            }
+          }
+  - id: Person
+    label: Person
+    comment: >-
+      A human being, typically distinguished from other animals by their
+      capacity for language, reasoning, and social interaction.
+    context: https://w3id.org/identification/v1rc1
+    example:
+      - label: >-
+          A basic example of the Person class with a Driver's License expressed
+          as JSON-LD.
+        json: |-
+          {
+            "@context": "https://w3id.org/identification/v1rc1",
+            "type": "Person",
+            "name": "Rick Jimmy Smith",
+            "givenName": "Rick",
+            "familyName": "Smith",
+            "additionalName": "Jimmy",
+            "birthDate": "1982-02-30",
+            "email": "rick.smith@email.example",
+            "telephone": "+15552345678",
+            "image": "https://images.example/ricksmith.jpg",
+            "address": {
+              "type": "PostalAddress",
+              "addressLine": "345 Circle St",
+              "addressLocality": "Anytown",
+              "addressRegion": "UA",
+              "postalCode": "12345",
+              "addressCountry": "UTO"
+            },
+            "identificationDocument": {
+              "type": "IdentificationDocument",
+              "name": "Utopia Driver's License",
+              "documentNumber": "U987654321",
+              "validUntil": "2029-02-30"
+              "issuer": {
+                "id": "did:web:dmv.utopia.example",
+                "name": "Utopia Department of Motor Vehicles"
+              }
+            }
+          }
+      - label: >-
+          A basic example of the Person class with a Tribal ID card expressed as
+          JSON-LD.
+        json: |-
+          {
+            "@context": "https://w3id.org/identification/v1rc1",
+            "type": "Person",
+            "name": ["John Doe", "Atohi"],
+            "givenName": "John",
+            "familyName": "Doe",
+            "additionalName": "Atohi",
+            "birthDate": "1985-05-15",
+            "email": "john.doe@example.com",
+            "telephone": "+1234567890",
+            "image": "https://images.example/johndoe.jpg",
+            "address": {
+              "type": "PostalAddress",
+              "addressLine": "123 Neighborhood St",
+              "addressLocality": "Anytown",
+              "addressRegion": "UA",
+              "postalCode": "12345",
+              "addressCountry": "UTO"
+            },
+            "identificationDocument": {
+              "type": "IdentificationDocument",
+              "name": "Grasslands Tribal Identification Card",
+              "documentNumber": "T1234567",
+              "validUntil": "2030-05-15"
+              "issuer": {
+                "id": "did:web:tribes.grasslands.example",
+                "name": "United Tribes of the Grasslands"
+              },
+            }
+          }
+property:
+  - id: additionalName
+    label: Additional Name
+    domain: Person
+    range: xsd:string
+    comment: >-
+      The property that specifies an additional name of the Person, Employer, or
+      Attestor, which may include middle names or other names used in addition
+      to the given name and family name.
+    context: https://w3id.org/identification/v1rc1
+    upper_value: schema:additionalName
+  - id: address
+    label: Address
+    domain:
+      - Person
+    range: schema:PostalAddress
+    comment: >-
+      The property that specifies the address related to the Person, modeled as
+      a PostalAddress per schema.org specification.
+    context: https://w3id.org/identification/v1rc1
+  - id: birthDate
+    label: Birth Date
+    domain: Person
+    range: xsd:date
+    comment: >-
+      The property that specifies the birth date of the Person, representing the
+      date on which the individual was born.
+    context: https://w3id.org/identification/v1rc1
+    upper_value: schema:birthDate
+  - id: documentNumber
+    label: Document Number
+    domain: IdentificationDocument
+    range: xsd:string
+    comment: The number that uniquely identifies the identification document.
+    context: https://w3id.org/identification/v1rc1
+  - id: email
+    label: Email
+    domain: Person
+    range: xsd:string
+    comment: >-
+      The property that specifies the email address associated with the Person,
+      Employer, or Attestor, allowing for electronic communication.
+    context: https://w3id.org/identification/v1rc1
+    upper_value: schema:email
+  - id: familyName
+    label: Family Name
+    domain: Person
+    range: xsd:string
+    comment: >-
+      The property that specifies the family name of the Person, Employer, or
+      Attestor, representing their last name or surname.
+    context: https://w3id.org/identification/v1rc1
+  - id: givenName
+    label: Given Name
+    domain: Person
+    range: xsd:string
+    comment: >-
+      The property that specifies the given name of the Person, Employer, or
+      Attestor, representing their first name or personal name.
+    context: https://w3id.org/identification/v1rc1
+    upper_value: schema:givenName
+  - id: identificationDocument
+    label: Identification Document
+    domain:
+      - Person
+    range:
+      - IdentificationDocument
+      - cred:VerifiableCredential
+    comment: >-
+      The property that specifies the identification document of the Person,
+      which may include documents like driver's license, passport, or any
+      official ID.
+    context: https://w3id.org/identification/v1rc1
+  - id: image
+    label: Image
+    domain:
+      - Person
+    range: xsd:string
+    comment: The property that specifies an image of the individual.
+    context: https://w3id.org/identification/v1rc1
+  - id: issuer
+    label: Issuer
+    domain: IdentificationDocument
+    range: xsd:string
+    comment: >-
+      The property that specifies the name of the entity or organization that
+      issued the identification document, providing context about the authority
+      behind the document.
+    context: https://w3id.org/identification/v1rc1
+    upper_value: cred:issuer
+  - id: name
+    label: Name
+    domain:
+      - Person
+      - IdentificationDocument
+    range: xsd:string
+    comment: This property specifies the name associated with the person or document.
+    context: https://w3id.org/identification/v1rc1
+    upper_value: schema:name
+  - id: telephone
+    label: Telephone
+    domain: Person
+    range: xsd:string
+    comment: >-
+      The property that specifies the telephone number associated with the
+      Person, enabling voice communication.
+    context: https://w3id.org/identification/v1rc1
+    upper_value: schema:telephone
+  - id: validUntil
+    label: Valid Until
+    domain: IdentificationDocument
+    range: xsd:date
+    comment: >-
+      The property that specifies the expiration date of the identification
+      document, indicating until when the document is considered valid.
+    context: https://w3id.org/identification/v1rc1
+    upper_value: cred:issuer
