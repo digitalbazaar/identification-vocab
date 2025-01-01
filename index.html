@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html><head>
+    <meta charset="utf-8">
+    <title>Identification Document Vocabulary</title>
+    <script class="remove" src="https://www.w3.org/Tools/respec/respec-w3c"></script>
+    <script>
+        function remove_status_remark() {
+            const sotd = document.getElementById("sotd");
+            const p = sotd.getElementsByTagName('p')[0];
+            sotd.removeChild(p);
+        }
+    </script>
+    <script class="remove">
+      var respecConfig = {
+        localBiblio: {
+        },
+        specStatus:  "base",
+        shortName:   "identification",
+        thisVersion: "https://w3id.org/identification",
+        doJsonLd:    true,
+        editors: [{
+          name:       "W3C Credentials Community Group",
+        }],
+        postProcess : [remove_status_remark],
+        inlineCSS: true,
+        doRDFa: false,
+        noIDLIn: true,
+        noLegacyStyle: false
+      };
+    </script>
+    <script type="text/javascript" src="https://livejs.com/live.js"></script>
+    <style type="text/css">
+      dl.terms dt {
+        float: left;
+        clear: left;
+        width: 10vw;
+      }
+
+      dl.terms dd {
+        margin-left: 15vw;
+      }
+
+      dl.terms dd:after {
+          content: '';
+          display: block;
+          clear: both;
+          margin-bottom: 5px;
+      }
+      table.rdfs-definition td {
+        vertical-align: top;
+        margin-right: 2em;
+      }
+      .bold {
+        font-weight: bold;
+      }
+      /* code {
+        color: red;
+      } */
+
+      .term_definitions section {
+        border-bottom-style: solid ;
+        border-bottom-width: 1px;
+        border-bottom-color: darkgrey;
+      }
+
+      .annoy {
+        background: hsla(40,100%,50%,0.95);
+		    color: black;
+		    padding: .75em 1em;
+		    border: red;
+		    border-style: solid none;
+		    box-shadow: 0 2px 8px black;
+		    text-align: center;
+      }
+
+      summary {
+        font-weight: normal !important;
+      }
+
+    </style>
+  </head>
+  <body typeof="owl:Ontology" resource="https://w3id.org/identification#" prefix="id: https://w3id.org/identification# cred: https://www.w3.org/2018/credentials# dc: http://purl.org/dc/terms/ owl: http://www.w3.org/2002/07/owl# rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns# rdfs: http://www.w3.org/2000/01/rdf-schema# xsd: http://www.w3.org/2001/XMLSchema# vs: http://www.w3.org/2003/06/sw-vocab-status/ns# schema: http://schema.org/ jsonld: http://www.w3.org/ns/json-ld#">
+    <section id="abstract">
+      <p>
+The Identification Document Vocabulary is a set of standard terms and definitions used to describe different types of identification documents, such as passports and driver's licenses. It helps organize important information related to these documents, including details about the holder, such as their name, date of birth, and expiration date. This vocabulary aims to improve communication and data sharing about identification documents, making it easier for organizations to understand and manage this information effectively.
+      </p>
+      <p>Alternate versions of the vocabulary definition exist in
+        <a rel="alternate" href="vocabulary.ttl">Turtle</a> and
+        <a rel="alternate" href="vocabulary.jsonld">JSON-LD</a>.
+      </p>
+    </section>
+    <section id="sotd">
+      <p>
+This is an experimental vocabulary and is not fit for production usage.
+      </p>
+    </section>
+
+    <section>
+      <h1>Introduction</h1>
+
+<div>
+    <h2>Introduction to the Identification Document Vocabulary</h2>
+    <p>The Identification Document Vocabulary is a helpful tool for organizing information related to various identification documents like passports, driver's licenses, and national IDs. In today's world, where we rely heavily on these documents for verification and identification, having a clear and consistent way to describe them is very important. This vocabulary makes it easier to share and understand the details about these documents.</p>
+
+    <p>One of the key benefits of using this vocabulary is that it promotes better communication between different organizations. For example, banks, government agencies, and travel companies all need to verify the identity of individuals. By using a common vocabulary, these organizations can reduce misunderstandings and make processes more efficient.</p>
+
+    <p>Many market verticals can benefit from employing the Identification Document Vocabulary. The financial sector, including banks and insurance companies, often requires identification verification to prevent fraud. Government agencies also need clear information about identification documents to maintain security and provide services effectively. Travel and hospitality industries, such as airlines and hotels, can streamline their check-in processes using this vocabulary.</p>
+
+    <p>There are many use cases for the Identification Document Vocabulary. For instance, when a person applies for a loan, the bank can use this vocabulary to collect and verify necessary information from their identification documents. Similarly, during airport check-ins, airline staff can refer to the vocabulary to ensure that all required details are captured accurately.</p>
+
+    <p>To make the most of this vocabulary, organizations must understand its requirements. They need to ensure that their systems can incorporate this standardized vocabulary into their processes. Training staff on how to use it effectively is also crucial to maximize its benefits and ensure smooth operations.</p>
+
+    <p>In conclusion, the Identification Document Vocabulary is a valuable resource for various sectors that deal with identification verification. It helps improve communication, efficiency, and security, making it easier for organizations to serve their customers and meet regulatory requirements.</p>
+</div>
+
+      <section id="conformance"></section>
+      <section>
+        <h2>Namespaces</h2>
+        <p>This specification makes use of the following namespaces:</p>
+        <dl class="terms" id="namespaces">
+        <dt><code>id</code></dt><dd><code>https://w3id.org/identification#</code></dd><dt><code>cred</code></dt><dd><code>https://www.w3.org/2018/credentials#</code></dd><dt><code>dc</code></dt><dd><code>http://purl.org/dc/terms/</code></dd><dt><code>owl</code></dt><dd><code>http://www.w3.org/2002/07/owl#</code></dd><dt><code>rdf</code></dt><dd><code>http://www.w3.org/1999/02/22-rdf-syntax-ns#</code></dd><dt><code>rdfs</code></dt><dd><code>http://www.w3.org/2000/01/rdf-schema#</code></dd><dt><code>xsd</code></dt><dd><code>http://www.w3.org/2001/XMLSchema#</code></dd><dt><code>vs</code></dt><dd><code>http://www.w3.org/2003/06/sw-vocab-status/ns#</code></dd><dt><code>schema</code></dt><dd><code>http://schema.org/</code></dd><dt><code>jsonld</code></dt><dd><code>http://www.w3.org/ns/json-ld#</code></dd></dl>
+      </section>
+
+      <section>
+        <h2><code>@context</code> files</h2>
+        <p>The following <code>@context</code> files make use of the terms defined in this specification:</p>
+        <ul id="contexts">
+        <li><a href="vocab" typeof="jsonld:Context"><code>vocab</code></a><details><summary>term list</summary><ul></ul></details></li><li><a href="https://w3id.org/identification/v1rc1" typeof="jsonld:Context"><code>https://w3id.org/identification/v1rc1</code></a><details><summary>term list</summary><ul><li><a href="#additionalName"><code>additionalName<code></code></code></a></li><li><a href="#address"><code>address<code></code></code></a></li><li><a href="#birthDate"><code>birthDate<code></code></code></a></li><li><a href="#documentNumber"><code>documentNumber<code></code></code></a></li><li><a href="#email"><code>email<code></code></code></a></li><li><a href="#familyName"><code>familyName<code></code></code></a></li><li><a href="#givenName"><code>givenName<code></code></code></a></li><li><a href="#identificationDocument"><code>identificationDocument<code></code></code></a></li><li><a href="#image"><code>image<code></code></code></a></li><li><a href="#issuer"><code>issuer<code></code></code></a></li><li><a href="#name"><code>name<code></code></code></a></li><li><a href="#telephone"><code>telephone<code></code></code></a></li><li><a href="#validUntil"><code>validUntil<code></code></code></a></li><li><a href="#IdentificationDocument"><code>IdentificationDocument<code></code></code></a></li><li><a href="#Person"><code>Person<code></code></code></a></li><li><a href="#additionalName"><code>additionalName<code></code></code></a></li><li><a href="#address"><code>address<code></code></code></a></li><li><a href="#birthDate"><code>birthDate<code></code></code></a></li><li><a href="#documentNumber"><code>documentNumber<code></code></code></a></li><li><a href="#email"><code>email<code></code></code></a></li><li><a href="#familyName"><code>familyName<code></code></code></a></li><li><a href="#givenName"><code>givenName<code></code></code></a></li><li><a href="#identificationDocument"><code>identificationDocument<code></code></code></a></li><li><a href="#image"><code>image<code></code></code></a></li><li><a href="#issuer"><code>issuer<code></code></code></a></li><li><a href="#name"><code>name<code></code></code></a></li><li><a href="#telephone"><code>telephone<code></code></code></a></li><li><a href="#validUntil"><code>validUntil<code></code></code></a></li><li><a href="#IdentificationDocument"><code>IdentificationDocument<code></code></code></a></li><li><a href="#Person"><code>Person<code></code></code></a></li></ul></details></li></ul>
+      </section>
+
+    </section>
+
+    <section id="term_definitions">
+      <h2>Term definitions</h2>
+
+      <section id="property_definitions" class="term_definitions">
+        <h3>Property definitions</h3>
+      <p>The following are  property definitions in the <code>id</code> namespace.</p><section id="additionalName" resource="id:additionalName" typeof="rdf:Property owl:DatatypeProperty"><h4><code>additionalName</code></h4><p property="rdfs:label"><em>Additional Name</em></p><div property="rdfs:comment" datatype="rdf:HTML">The property that specifies an additional name of the Person, Employer, or Attestor, which may include middle names or other names used in addition to the given name and family name.</div><span property="rdfs:isDefinedBy" resource="id:"></span><span style="display: none" property="vs:term_status">stable</span><dl class="terms"><dt>Subproperty of:</dt><dd><span property="rdfs:subPropertyOf" resource="schema:additionalName"><a href="http://schema.org/additionalName"><code>schema:additionalName</code></a></span><br></dd></dl><dl class="terms"><dt>Range:</dt><dd property="rdfs:range" resource="xsd:string"><code>xsd:string</code></dd><dt>Domain:</dt><dd property="rdfs:domain" resource="Person"><a href="#Person"><code>Person</code></a></dd></dl><dl class="terms"><dt>Relevant <code>@context</code>:</dt><dd><span rev="schema:mentions"><a href="https://w3id.org/identification/v1rc1"><code>https://w3id.org/identification/v1rc1</code></a></span></dd></dl></section><section id="address" resource="id:address" typeof="rdf:Property"><h4><code>address</code></h4><p property="rdfs:label"><em>Address</em></p><div property="rdfs:comment" datatype="rdf:HTML">The property that specifies the address related to the Person, modeled as a PostalAddress per schema.org specification.</div><span property="rdfs:isDefinedBy" resource="id:"></span><span style="display: none" property="vs:term_status">stable</span><dl class="terms"><dt>Range:</dt><dd property="rdfs:range" resource="schema:PostalAddress"><a href="http://schema.org/PostalAddress"><code>schema:PostalAddress</code></a></dd><dt>Domain:</dt><dd property="rdfs:domain" resource="Person"><a href="#Person"><code>Person</code></a></dd></dl><dl class="terms"><dt>Relevant <code>@context</code>:</dt><dd><span rev="schema:mentions"><a href="https://w3id.org/identification/v1rc1"><code>https://w3id.org/identification/v1rc1</code></a></span></dd></dl></section><section id="birthDate" resource="id:birthDate" typeof="rdf:Property owl:DatatypeProperty"><h4><code>birthDate</code></h4><p property="rdfs:label"><em>Birth Date</em></p><div property="rdfs:comment" datatype="rdf:HTML">The property that specifies the birth date of the Person, representing the date on which the individual was born.</div><span property="rdfs:isDefinedBy" resource="id:"></span><span style="display: none" property="vs:term_status">stable</span><dl class="terms"><dt>Subproperty of:</dt><dd><span property="rdfs:subPropertyOf" resource="schema:birthDate"><a href="http://schema.org/birthDate"><code>schema:birthDate</code></a></span><br></dd></dl><dl class="terms"><dt>Range:</dt><dd property="rdfs:range" resource="xsd:date"><code>xsd:date</code></dd><dt>Domain:</dt><dd property="rdfs:domain" resource="Person"><a href="#Person"><code>Person</code></a></dd></dl><dl class="terms"><dt>Relevant <code>@context</code>:</dt><dd><span rev="schema:mentions"><a href="https://w3id.org/identification/v1rc1"><code>https://w3id.org/identification/v1rc1</code></a></span></dd></dl></section><section id="documentNumber" resource="id:documentNumber" typeof="rdf:Property owl:DatatypeProperty"><h4><code>documentNumber</code></h4><p property="rdfs:label"><em>Document Number</em></p><div property="rdfs:comment" datatype="rdf:HTML">The number that uniquely identifies the identification document.</div><span property="rdfs:isDefinedBy" resource="id:"></span><span style="display: none" property="vs:term_status">stable</span><dl class="terms"><dt>Range:</dt><dd property="rdfs:range" resource="xsd:string"><code>xsd:string</code></dd><dt>Domain:</dt><dd property="rdfs:domain" resource="IdentificationDocument"><a href="#IdentificationDocument"><code>IdentificationDocument</code></a></dd></dl><dl class="terms"><dt>Relevant <code>@context</code>:</dt><dd><span rev="schema:mentions"><a href="https://w3id.org/identification/v1rc1"><code>https://w3id.org/identification/v1rc1</code></a></span></dd></dl></section><section id="email" resource="id:email" typeof="rdf:Property owl:DatatypeProperty"><h4><code>email</code></h4><p property="rdfs:label"><em>Email</em></p><div property="rdfs:comment" datatype="rdf:HTML">The property that specifies the email address associated with the Person, Employer, or Attestor, allowing for electronic communication.</div><span property="rdfs:isDefinedBy" resource="id:"></span><span style="display: none" property="vs:term_status">stable</span><dl class="terms"><dt>Subproperty of:</dt><dd><span property="rdfs:subPropertyOf" resource="schema:email"><a href="http://schema.org/email"><code>schema:email</code></a></span><br></dd></dl><dl class="terms"><dt>Range:</dt><dd property="rdfs:range" resource="xsd:string"><code>xsd:string</code></dd><dt>Domain:</dt><dd property="rdfs:domain" resource="Person"><a href="#Person"><code>Person</code></a></dd></dl><dl class="terms"><dt>Relevant <code>@context</code>:</dt><dd><span rev="schema:mentions"><a href="https://w3id.org/identification/v1rc1"><code>https://w3id.org/identification/v1rc1</code></a></span></dd></dl></section><section id="familyName" resource="id:familyName" typeof="rdf:Property owl:DatatypeProperty"><h4><code>familyName</code></h4><p property="rdfs:label"><em>Family Name</em></p><div property="rdfs:comment" datatype="rdf:HTML">The property that specifies the family name of the Person, Employer, or Attestor, representing their last name or surname.</div><span property="rdfs:isDefinedBy" resource="id:"></span><span style="display: none" property="vs:term_status">stable</span><dl class="terms"><dt>Range:</dt><dd property="rdfs:range" resource="xsd:string"><code>xsd:string</code></dd><dt>Domain:</dt><dd property="rdfs:domain" resource="Person"><a href="#Person"><code>Person</code></a></dd></dl><dl class="terms"><dt>Relevant <code>@context</code>:</dt><dd><span rev="schema:mentions"><a href="https://w3id.org/identification/v1rc1"><code>https://w3id.org/identification/v1rc1</code></a></span></dd></dl></section><section id="givenName" resource="id:givenName" typeof="rdf:Property owl:DatatypeProperty"><h4><code>givenName</code></h4><p property="rdfs:label"><em>Given Name</em></p><div property="rdfs:comment" datatype="rdf:HTML">The property that specifies the given name of the Person, Employer, or Attestor, representing their first name or personal name.</div><span property="rdfs:isDefinedBy" resource="id:"></span><span style="display: none" property="vs:term_status">stable</span><dl class="terms"><dt>Subproperty of:</dt><dd><span property="rdfs:subPropertyOf" resource="schema:givenName"><a href="http://schema.org/givenName"><code>schema:givenName</code></a></span><br></dd></dl><dl class="terms"><dt>Range:</dt><dd property="rdfs:range" resource="xsd:string"><code>xsd:string</code></dd><dt>Domain:</dt><dd property="rdfs:domain" resource="Person"><a href="#Person"><code>Person</code></a></dd></dl><dl class="terms"><dt>Relevant <code>@context</code>:</dt><dd><span rev="schema:mentions"><a href="https://w3id.org/identification/v1rc1"><code>https://w3id.org/identification/v1rc1</code></a></span></dd></dl></section><section id="identificationDocument" resource="id:identificationDocument" typeof="rdf:Property"><h4><code>identificationDocument</code></h4><p property="rdfs:label"><em>Identification Document</em></p><div property="rdfs:comment" datatype="rdf:HTML">The property that specifies the identification document of the Person, which may include documents like driver's license, passport, or any official ID.</div><span property="rdfs:isDefinedBy" resource="id:"></span><span style="display: none" property="vs:term_status">stable</span><dl class="terms"><dt>Range:</dt><dd property="rdfs:range">Intersection of:<br><span resource="IdentificationDocument"><a href="#IdentificationDocument"><code>IdentificationDocument</code></a></span><br><span resource="cred:VerifiableCredential"><a href="https://www.w3.org/2018/credentials#VerifiableCredential"><code>cred:VerifiableCredential</code></a></span><br></dd><dt>Domain:</dt><dd property="rdfs:domain" resource="Person"><a href="#Person"><code>Person</code></a></dd></dl><dl class="terms"><dt>Relevant <code>@context</code>:</dt><dd><span rev="schema:mentions"><a href="https://w3id.org/identification/v1rc1"><code>https://w3id.org/identification/v1rc1</code></a></span></dd></dl></section><section id="image" resource="id:image" typeof="rdf:Property owl:DatatypeProperty"><h4><code>image</code></h4><p property="rdfs:label"><em>Image</em></p><div property="rdfs:comment" datatype="rdf:HTML">The property that specifies an image of the individual.</div><span property="rdfs:isDefinedBy" resource="id:"></span><span style="display: none" property="vs:term_status">stable</span><dl class="terms"><dt>Range:</dt><dd property="rdfs:range" resource="xsd:string"><code>xsd:string</code></dd><dt>Domain:</dt><dd property="rdfs:domain" resource="Person"><a href="#Person"><code>Person</code></a></dd></dl><dl class="terms"><dt>Relevant <code>@context</code>:</dt><dd><span rev="schema:mentions"><a href="https://w3id.org/identification/v1rc1"><code>https://w3id.org/identification/v1rc1</code></a></span></dd></dl></section><section id="issuer" resource="id:issuer" typeof="rdf:Property owl:DatatypeProperty"><h4><code>issuer</code></h4><p property="rdfs:label"><em>Issuer</em></p><div property="rdfs:comment" datatype="rdf:HTML">The property that specifies the name of the entity or organization that issued the identification document, providing context about the authority behind the document.</div><span property="rdfs:isDefinedBy" resource="id:"></span><span style="display: none" property="vs:term_status">stable</span><dl class="terms"><dt>Subproperty of:</dt><dd><span property="rdfs:subPropertyOf" resource="cred:issuer"><a href="https://www.w3.org/2018/credentials#issuer"><code>cred:issuer</code></a></span><br></dd></dl><dl class="terms"><dt>Range:</dt><dd property="rdfs:range" resource="xsd:string"><code>xsd:string</code></dd><dt>Domain:</dt><dd property="rdfs:domain" resource="IdentificationDocument"><a href="#IdentificationDocument"><code>IdentificationDocument</code></a></dd></dl><dl class="terms"><dt>Relevant <code>@context</code>:</dt><dd><span rev="schema:mentions"><a href="https://w3id.org/identification/v1rc1"><code>https://w3id.org/identification/v1rc1</code></a></span></dd></dl></section><section id="name" resource="id:name" typeof="rdf:Property owl:DatatypeProperty"><h4><code>name</code></h4><p property="rdfs:label"><em>Name</em></p><div property="rdfs:comment" datatype="rdf:HTML">This property specifies the name associated with the person or document.</div><span property="rdfs:isDefinedBy" resource="id:"></span><span style="display: none" property="vs:term_status">stable</span><dl class="terms"><dt>Subproperty of:</dt><dd><span property="rdfs:subPropertyOf" resource="schema:name"><a href="http://schema.org/name"><code>schema:name</code></a></span><br></dd></dl><dl class="terms"><dt>Range:</dt><dd property="rdfs:range" resource="xsd:string"><code>xsd:string</code></dd><dt>Domain:</dt><dd property="rdfs:domain" resource="_:a1">Union of: <br><span about="_:a1" inlist="true" property="owl:unionOf" resource="Person"><a href="#Person"><code>Person</code></a></span><br><span about="_:a1" inlist="true" property="owl:unionOf" resource="IdentificationDocument"><a href="#IdentificationDocument"><code>IdentificationDocument</code></a></span><br></dd></dl><dl class="terms"><dt>Relevant <code>@context</code>:</dt><dd><span rev="schema:mentions"><a href="https://w3id.org/identification/v1rc1"><code>https://w3id.org/identification/v1rc1</code></a></span></dd></dl></section><section id="telephone" resource="id:telephone" typeof="rdf:Property owl:DatatypeProperty"><h4><code>telephone</code></h4><p property="rdfs:label"><em>Telephone</em></p><div property="rdfs:comment" datatype="rdf:HTML">The property that specifies the telephone number associated with the Person, enabling voice communication.</div><span property="rdfs:isDefinedBy" resource="id:"></span><span style="display: none" property="vs:term_status">stable</span><dl class="terms"><dt>Subproperty of:</dt><dd><span property="rdfs:subPropertyOf" resource="schema:telephone"><a href="http://schema.org/telephone"><code>schema:telephone</code></a></span><br></dd></dl><dl class="terms"><dt>Range:</dt><dd property="rdfs:range" resource="xsd:string"><code>xsd:string</code></dd><dt>Domain:</dt><dd property="rdfs:domain" resource="Person"><a href="#Person"><code>Person</code></a></dd></dl><dl class="terms"><dt>Relevant <code>@context</code>:</dt><dd><span rev="schema:mentions"><a href="https://w3id.org/identification/v1rc1"><code>https://w3id.org/identification/v1rc1</code></a></span></dd></dl></section><section id="validUntil" resource="id:validUntil" typeof="rdf:Property owl:DatatypeProperty"><h4><code>validUntil</code></h4><p property="rdfs:label"><em>Valid Until</em></p><div property="rdfs:comment" datatype="rdf:HTML">The property that specifies the expiration date of the identification document, indicating until when the document is considered valid.</div><span property="rdfs:isDefinedBy" resource="id:"></span><span style="display: none" property="vs:term_status">stable</span><dl class="terms"><dt>Subproperty of:</dt><dd><span property="rdfs:subPropertyOf" resource="cred:issuer"><a href="https://www.w3.org/2018/credentials#issuer"><code>cred:issuer</code></a></span><br></dd></dl><dl class="terms"><dt>Range:</dt><dd property="rdfs:range" resource="xsd:date"><code>xsd:date</code></dd><dt>Domain:</dt><dd property="rdfs:domain" resource="IdentificationDocument"><a href="#IdentificationDocument"><code>IdentificationDocument</code></a></dd></dl><dl class="terms"><dt>Relevant <code>@context</code>:</dt><dd><span rev="schema:mentions"><a href="https://w3id.org/identification/v1rc1"><code>https://w3id.org/identification/v1rc1</code></a></span></dd></dl></section></section>
+
+      <section id="class_definitions" class="term_definitions">
+        <h2>Class definitions</h2>
+      <p>The following are  class definitions in the <code>id</code> namespace.</p><section id="IdentificationDocument" resource="id:IdentificationDocument" typeof="rdfs:Class"><h4><code>IdentificationDocument</code></h4><p property="rdfs:label"><em>Identification Document</em></p><div property="rdfs:comment" datatype="rdf:HTML">A document that serves to verify the identity of an individual, such as a passport or a driver's license.</div><span property="rdfs:isDefinedBy" resource="id:"></span><span style="display: none" property="vs:term_status">stable</span><dl class="terms"><dt>Includes the range of:</dt><dd><a href="#identificationDocument"><code>identificationDocument</code></a></dd><dt>Domain of:</dt><dd><a href="#documentNumber"><code>documentNumber</code></a>, <a href="#issuer"><code>issuer</code></a>, <a href="#validUntil"><code>validUntil</code></a></dd><dt>In the domain of:</dt><dd><a href="#name"><code>name</code></a></dd></dl><dl class="terms"><dt>Relevant <code>@context</code>:</dt><dd><span rev="schema:mentions"><a href="https://w3id.org/identification/v1rc1"><code>https://w3id.org/identification/v1rc1</code></a></span></dd></dl><pre class="example prettyprint language-json" title="A basic example of the IdentificationDocument class expressed as JSON-LD.">{
+  "@context": "https://w3id.org/identification/v1rc1",
+  "type": "IdentificationDocument",
+  "name": "Utopia Driver's License",
+  "documentNumber": "U123456789",
+  "validUntil": "2025-12-31"
+  "issuer": {
+    "id": "did:web:dmv.utopia.example",
+    "name": "Utopia Department of Motor Vehicles"
+  }
+}</pre></section><section id="Person" resource="id:Person" typeof="rdfs:Class"><h4><code>Person</code></h4><p property="rdfs:label"><em>Person</em></p><div property="rdfs:comment" datatype="rdf:HTML">A human being, typically distinguished from other animals by their capacity for language, reasoning, and social interaction.</div><span property="rdfs:isDefinedBy" resource="id:"></span><span style="display: none" property="vs:term_status">stable</span><dl class="terms"><dt>Domain of:</dt><dd><a href="#additionalName"><code>additionalName</code></a>, <a href="#address"><code>address</code></a>, <a href="#birthDate"><code>birthDate</code></a>, <a href="#email"><code>email</code></a>, <a href="#familyName"><code>familyName</code></a>, <a href="#givenName"><code>givenName</code></a>, <a href="#identificationDocument"><code>identificationDocument</code></a>, <a href="#image"><code>image</code></a>, <a href="#telephone"><code>telephone</code></a></dd><dt>In the domain of:</dt><dd><a href="#name"><code>name</code></a></dd></dl><dl class="terms"><dt>Relevant <code>@context</code>:</dt><dd><span rev="schema:mentions"><a href="https://w3id.org/identification/v1rc1"><code>https://w3id.org/identification/v1rc1</code></a></span></dd></dl><pre class="example prettyprint language-json" title="A basic example of the Person class with a Driver's License expressed as JSON-LD.">{
+  "@context": "https://w3id.org/identification/v1rc1",
+  "type": "Person",
+  "name": "Rick Jimmy Smith",
+  "givenName": "Rick",
+  "familyName": "Smith",
+  "additionalName": "Jimmy",
+  "birthDate": "1982-02-30",
+  "email": "rick.smith@email.example",
+  "telephone": "+15552345678",
+  "image": "https://images.example/ricksmith.jpg",
+  "address": {
+    "type": "PostalAddress",
+    "addressLine": "345 Circle St",
+    "addressLocality": "Anytown",
+    "addressRegion": "UA",
+    "postalCode": "12345",
+    "addressCountry": "UTO"
+  },
+  "identificationDocument": {
+    "type": "IdentificationDocument",
+    "name": "Utopia Driver's License",
+    "documentNumber": "U987654321",
+    "validUntil": "2029-02-30"
+    "issuer": {
+      "id": "did:web:dmv.utopia.example",
+      "name": "Utopia Department of Motor Vehicles"
+    }
+  }
+}</pre><pre class="example prettyprint language-json" title="A basic example of the Person class with a Tribal ID card expressed as JSON-LD.">{
+  "@context": "https://w3id.org/identification/v1rc1",
+  "type": "Person",
+  "name": ["John Doe", "Atohi"],
+  "givenName": "John",
+  "familyName": "Doe",
+  "additionalName": "Atohi",
+  "birthDate": "1985-05-15",
+  "email": "john.doe@example.com",
+  "telephone": "+1234567890",
+  "image": "https://images.example/johndoe.jpg",
+  "address": {
+    "type": "PostalAddress",
+    "addressLine": "123 Neighborhood St",
+    "addressLocality": "Anytown",
+    "addressRegion": "UA",
+    "postalCode": "12345",
+    "addressCountry": "UTO"
+  },
+  "identificationDocument": {
+    "type": "IdentificationDocument",
+    "name": "Grasslands Tribal Identification Card",
+    "documentNumber": "T1234567",
+    "validUntil": "2030-05-15"
+    "issuer": {
+      "id": "did:web:tribes.grasslands.example",
+      "name": "United Tribes of the Grasslands"
+    },
+  }
+}</pre></section></section>
+
+      
+
+      
+    </section>
+
+    
+
+    
+
+  
+
+</body></html>
