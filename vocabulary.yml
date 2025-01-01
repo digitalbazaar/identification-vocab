@@ -34,6 +34,58 @@ ontology:
       identification documents, making it easier for organizations to understand
       and manage this information effectively.
 class:
+  - id: EmploymentEligibilityVerificationCredential
+    label: Employment Eligibility Verification Credential
+    comment: >-
+      A credential that verifies the eligibility of an individual to be employed
+      in a particular country.
+    context: https://w3id.org/employment/v1rc1
+    example:
+      - label: >-
+          A basic example of the identification document credential expressed as
+          JSON-LD.
+        json: |-
+          {
+            "@context": [
+              "https://www.w3.org/ns/credentials/v2",
+              "https://w3id.org/identification/v1rc1"
+            ],
+            "type": [
+              "VerifiableCredential",
+              "IdentificationDocumentCredential"
+            ],
+            "issuer": "did:web:grasslands.tribes.example",
+            "validFrom": "2025-01-01T11:30:00Z",
+            "credentialSubject": {
+              "type": "Person",
+              "name": ["John Doe", "Atohi"],
+              "givenName": "John",
+              "familyName": "Doe",
+              "additionalName": "Atohi",
+              "birthDate": "1985-05-15",
+              "email": "john.doe@example.com",
+              "telephone": "+1234567890",
+              "image": "https://images.example/johndoe.jpg",
+              "address": {
+                "type": "PostalAddress",
+                "streetAddress": "123 Neighborhood St",
+                "addressLocality": "Anytown",
+                "addressRegion": "UA",
+                "postalCode": "12345",
+                "addressCountry": "UTO"
+              },
+              "identificationDocument": {
+                "type": "IdentificationDocument",
+                "name": "Grasslands Tribal Identification Card",
+                "documentNumber": "T1234567",
+                "validUntil": "2030-05-15",
+                "issuer": {
+                  "id": "did:web:tribes.grasslands.example",
+                  "name": "United Tribes of the Grasslands"
+                }
+              }
+            }
+          }
   - id: IdentificationDocument
     label: Identification Document
     comment: >-
@@ -80,7 +132,7 @@ class:
             "image": "https://images.example/ricksmith.jpg",
             "address": {
               "type": "PostalAddress",
-              "addressLine": "345 Circle St",
+              "streetAddress": "345 Circle St",
               "addressLocality": "Anytown",
               "addressRegion": "UA",
               "postalCode": "12345",
@@ -114,7 +166,7 @@ class:
             "image": "https://images.example/johndoe.jpg",
             "address": {
               "type": "PostalAddress",
-              "addressLine": "123 Neighborhood St",
+              "streetAddress": "123 Neighborhood St",
               "addressLocality": "Anytown",
               "addressRegion": "UA",
               "postalCode": "12345",
