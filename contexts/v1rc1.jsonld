@@ -1,0 +1,47 @@
+{
+  "@context": {
+    "@protected": true,
+    "id": "@id",
+    "type": "@type",
+    "IdentificationDocument": "https://w3id.org/identification#IdentificationDocument",
+    "Person": "https://w3id.org/identification#Person",
+    "additionalName": {
+      "@id": "https://w3id.org/identification#additionalName",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "address": "https://w3id.org/identification#address",
+    "birthDate": {
+      "@id": "https://w3id.org/identification#birthDate",
+      "@type": "http://www.w3.org/2001/XMLSchema#date"
+    },
+    "documentNumber": {
+      "@id": "https://w3id.org/identification#documentNumber",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "email": {
+      "@id": "https://w3id.org/identification#email",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "familyName": {
+      "@id": "https://w3id.org/identification#familyName",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "givenName": {
+      "@id": "https://w3id.org/identification#givenName",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "identificationDocument": "https://w3id.org/identification#identificationDocument",
+    "image": {
+      "@id": "https://w3id.org/identification#image",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "telephone": {
+      "@id": "https://w3id.org/identification#telephone",
+      "@type": "http://www.w3.org/2001/XMLSchema#string"
+    },
+    "validUntil": {
+      "@id": "https://w3id.org/identification#validUntil",
+      "@type": "http://www.w3.org/2001/XMLSchema#date"
+    }
+  }
+}
