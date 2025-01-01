@@ -3,8 +3,27 @@
     "@protected": true,
     "id": "@id",
     "type": "@type",
-    "IdentificationDocument": "https://w3id.org/identification#IdentificationDocument",
+    "IdentificationDocument": {
+      "@id": "https://w3id.org/employment#IdentificationDocument",
+      "@context": {
+        "@protected": true,
+        "id": "@id",
+        "type": "@type",
+        "issuer": "https://w3id.org/employment#issuer"
+      }
+    },
+    "IdentificationDocumentCredential": "https://w3id.org/employment#IdentificationDocumentCredential",
     "Person": "https://w3id.org/identification#Person",
+    "PostalAddress": {
+      "@id": "https://schema.org/PostalAddress",
+      "@context": {
+        "streetAddress": "https://schema.org/streetAddress",
+        "addressRegion": "https://schema.org/addressRegion",
+        "addressLocality": "https://schema.org/addressLocality",
+        "addressCountry": "https://schema.org/addressCountry",
+        "postalCode": "https://schema.org/postalCode"
+      }
+    },
     "additionalName": {
       "@id": "https://w3id.org/identification#additionalName",
       "@type": "http://www.w3.org/2001/XMLSchema#string"
@@ -40,8 +59,8 @@
       "@type": "http://www.w3.org/2001/XMLSchema#string"
     },
     "validUntil": {
-      "@id": "https://w3id.org/identification#validUntil",
-      "@type": "http://www.w3.org/2001/XMLSchema#date"
+      "@id": "https://www.w3.org/2018/credentials#validUntil",
+      "@type": "http://www.w3.org/2001/XMLSchema#dateTime"
     }
   }
 }
