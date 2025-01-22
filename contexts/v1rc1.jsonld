@@ -14,6 +14,9 @@
       "@context": {
         "@protected": true,
 
+        "id": "@id",
+        "type": "@type",
+
         "aamvaDhsCompliance": "https://w3id.org/vdl/aamva#dhsCompliance",
         "aamvaDhsComplianceText": "https://w3id.org/vdl/aamva#dhsCompliance_text",
         "aamvaDomesticDrivingPrivileges": {
@@ -40,6 +43,11 @@
     "Observation": {
       "@id": "https://schema.org/Observation",
       "@context": {
+        "@protected": true,
+
+        "id": "@id",
+        "type": "@type",
+
         "description": "https://schema.org/description",
         "observationDate": {
           "@id": "https://schema.org/observationDate",
@@ -57,6 +65,11 @@
     "PostalAddress": {
       "@id": "https://schema.org/PostalAddress",
       "@context": {
+        "@protected": true,
+
+        "id": "@id",
+        "type": "@type",
+
         "streetAddress": "https://schema.org/streetAddress",
         "addressRegion": "https://schema.org/addressRegion",
         "addressLocality": "https://schema.org/addressLocality",
@@ -69,6 +82,7 @@
       "@id": "https://schema.org/Person",
       "@context": {
         "@protected": true,
+
         "id": "@id",
         "type": "@type",
 
