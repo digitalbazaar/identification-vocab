@@ -4,6 +4,8 @@ vocab:
 prefix:
   - id: cred
     value: https://www.w3.org/2018/credentials#
+  - id: schema
+    value: https://schema.org/
 ontology:
   - property: dc:title
     value: Identification Document Vocabulary
@@ -108,7 +110,7 @@ class:
               "name": "Utopia Department of Motor Vehicles"
             }
           }
-  - id: Person
+  - id: schema:Person
     label: Person
     comment: >-
       A human being, typically distinguished from other animals by their
@@ -184,70 +186,66 @@ class:
             }
           }
 property:
-  - id: additionalName
+  - id: schema:additionalName
     label: Additional Name
-    domain: Person
+    domain: schema:Person
     range: xsd:string
     comment: >-
       The property that specifies an additional name of the Person, Employer, or
       Attestor, which may include middle names or other names used in addition
       to the given name and family name.
     context: https://w3id.org/identification/v1rc1
-    upper_value: schema:additionalName
   - id: address
     label: Address
     domain:
-      - Person
+      - schema:Person
     range: schema:PostalAddress
     comment: >-
       The property that specifies the address related to the Person, modeled as
       a PostalAddress per schema.org specification.
     context: https://w3id.org/identification/v1rc1
-  - id: birthDate
+  - id: schema:birthDate
     label: Birth Date
-    domain: Person
+    domain: schema:Person
     range: xsd:date
     comment: >-
       The property that specifies the birth date of the Person, representing the
       date on which the individual was born.
     context: https://w3id.org/identification/v1rc1
-    upper_value: schema:birthDate
   - id: documentNumber
     label: Document Number
     domain: IdentificationDocument
     range: xsd:string
     comment: The number that uniquely identifies the identification document.
     context: https://w3id.org/identification/v1rc1
-  - id: email
+  - id: schema:email
     label: Email
-    domain: Person
+    domain: schema:Person
     range: xsd:string
     comment: >-
       The property that specifies the email address associated with the Person,
       Employer, or Attestor, allowing for electronic communication.
     context: https://w3id.org/identification/v1rc1
-    upper_value: schema:email
   - id: familyName
     label: Family Name
-    domain: Person
+    domain: schema:Person
     range: xsd:string
     comment: >-
       The property that specifies the family name of the Person, Employer, or
       Attestor, representing their last name or surname.
     context: https://w3id.org/identification/v1rc1
-  - id: givenName
+  - id: schema:givenName
     label: Given Name
-    domain: Person
+    domain: schema:Person
     range: xsd:string
     comment: >-
       The property that specifies the given name of the Person, Employer, or
       Attestor, representing their first name or personal name.
     context: https://w3id.org/identification/v1rc1
-    upper_value: schema:givenName
   - id: identificationDocument
     label: Identification Document
     domain:
-      - Person
+      - schema:Person
     range:
       - IdentificationDocument
       - cred:VerifiableCredential
@@ -259,11 +257,11 @@ property:
   - id: image
     label: Image
     domain:
-      - Person
+      - schema:Person
     range: xsd:string
     comment: The property that specifies an image of the individual.
     context: https://w3id.org/identification/v1rc1
-  - id: issuer
+  - id: cred:issuer
     label: Issuer
     domain: IdentificationDocument
     range: xsd:string
@@ -272,26 +270,23 @@ property:
       issued the identification document, providing context about the authority
       behind the document.
     context: https://w3id.org/identification/v1rc1
-    upper_value: cred:issuer
-  - id: name
+  - id: schema:name
     label: Name
     domain:
-      - Person
+      - schema:Person
       - IdentificationDocument
     range: xsd:string
     comment: This property specifies the name associated with the person or document.
     context: https://w3id.org/identification/v1rc1
-    upper_value: schema:name
-  - id: telephone
+  - id: schema:telephone
     label: Telephone
-    domain: Person
+    domain: schema:Person
     range: xsd:string
     comment: >-
       The property that specifies the telephone number associated with the
       Person, enabling voice communication.
     context: https://w3id.org/identification/v1rc1
-    upper_value: schema:telephone
-  - id: validUntil
+  - id: cred:validUntil
     label: Valid Until
     domain: IdentificationDocument
     range: xsd:date
@@ -299,4 +294,3 @@ property:
       The property that specifies the expiration date of the identification
       document, indicating until when the document is considered valid.
     context: https://w3id.org/identification/v1rc1
-    upper_value: cred:issuer
