@@ -294,3 +294,11 @@ property:
       The property that specifies the expiration date of the identification
       document, indicating until when the document is considered valid.
     context: https://w3id.org/identification/v1rc1
+  - id: schema:worksFor
+    label: Works For
+    domain: schema:Person
+    range: schema:Organization
+    comment: >-
+      The property that specifies the organization or agency that employs the
+      Person, modeled as an Organization per schema.org specification.
+    context: https://w3id.org/identification/v1rc1
