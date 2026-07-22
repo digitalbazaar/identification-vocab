@@ -101,8 +101,7 @@
         "identificationDocument": "https://w3id.org/identification#identificationDocument",
         "image": "https://schema.org/image",
         "telephone": "https://schema.org/telephone",
-        "weight": "https://schema.org/weight",
-        "worksFor": "https://schema.org/worksFor"
+        "weight": "https://schema.org/weight"
       }
     }
   }

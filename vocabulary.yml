@@ -185,6 +185,35 @@ class:
               },
             }
           }
+  - id: schema:Organization
+    label: Organization
+    comment: >-
+      An organization or agency, such as an employer, that a Person may be
+      associated with (for example, via worksFor).
+    context: https://w3id.org/identification/v1rc1
+    example:
+      - label: >-
+          A basic example of the Organization class expressed as JSON-LD.
+        json: |-
+          {
+            "@context": "https://w3id.org/identification/v1rc1",
+            "type": "Organization",
+            "name": "Utopia Department of Parks and Recreation",
+            "description": "Manages public parks and recreational programs.",
+            "department": "Facilities Maintenance",
+            "email": "info@parks.utopia.example",
+            "telephone": "+15552345678",
+            "url": "https://parks.utopia.example",
+            "logo": "https://parks.utopia.example/logo.png",
+            "address": {
+              "type": "PostalAddress",
+              "streetAddress": "1 Parks Way",
+              "addressLocality": "Anytown",
+              "addressRegion": "UA",
+              "postalCode": "12345",
+              "addressCountry": "UTO"
+            }
+          }
 property:
   - id: schema:additionalName
     label: Additional Name
@@ -199,10 +228,11 @@ property:
     label: Address
     domain:
       - schema:Person
+      - schema:Organization
     range: schema:PostalAddress
     comment: >-
-      The property that specifies the address related to the Person, modeled as
-      a PostalAddress per schema.org specification.
+      The property that specifies the address related to the Person or
+      Organization, modeled as a PostalAddress per schema.org specification.
     context: https://w3id.org/identification/v1rc1
   - id: schema:birthDate
     label: Birth Date
@@ -212,6 +242,20 @@ property:
       The property that specifies the birth date of the Person, representing the
       date on which the individual was born.
     context: https://w3id.org/identification/v1rc1
+  - id: schema:department
+    label: Department
+    domain: schema:Organization
+    range: xsd:string
+    comment: >-
+      The property that specifies a sub-organization or department within the
+      Organization.
+    context: https://w3id.org/identification/v1rc1
+  - id: schema:description
+    label: Description
+    domain: schema:Organization
+    range: xsd:string
+    comment: The property that specifies a description of the Organization.
+    context: https://w3id.org/identification/v1rc1
   - id: documentNumber
     label: Document Number
     domain: IdentificationDocument
@@ -220,11 +264,13 @@ property:
     context: https://w3id.org/identification/v1rc1
   - id: schema:email
     label: Email
-    domain: schema:Person
+    domain:
+      - schema:Person
+      - schema:Organization
     range: xsd:string
     comment: >-
-      The property that specifies the email address associated with the Person,
-      Employer, or Attestor, allowing for electronic communication.
+      The property that specifies the email address associated with the Person
+      or Organization, allowing for electronic communication.
     context: https://w3id.org/identification/v1rc1
   - id: familyName
     label: Family Name
@@ -270,21 +316,38 @@ property:
       issued the identification document, providing context about the authority
       behind the document.
     context: https://w3id.org/identification/v1rc1
+  - id: schema:logo
+    label: Logo
+    domain: schema:Organization
+    range: xsd:string
+    comment: The property that specifies a URL to the Organization's logo image.
+    context: https://w3id.org/identification/v1rc1
   - id: schema:name
     label: Name
     domain:
       - schema:Person
       - IdentificationDocument
+      - schema:Organization
     range: xsd:string
-    comment: This property specifies the name associated with the person or document.
+    comment: >-
+      This property specifies the name associated with the person,
+      organization, or document.
     context: https://w3id.org/identification/v1rc1
   - id: schema:telephone
     label: Telephone
-    domain: schema:Person
+    domain:
+      - schema:Person
+      - schema:Organization
     range: xsd:string
     comment: >-
       The property that specifies the telephone number associated with the
-      Person, enabling voice communication.
+      Person or Organization, enabling voice communication.
+    context: https://w3id.org/identification/v1rc1
+  - id: schema:url
+    label: URL
+    domain: schema:Organization
+    range: xsd:string
+    comment: The property that specifies the Organization's website URL.
     context: https://w3id.org/identification/v1rc1
   - id: cred:validUntil
     label: Valid Until
