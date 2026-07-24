@@ -1,0 +1,144 @@
+{
+  "@context": {
+    "@protected": true,
+    "IdentificationDocumentCredential": "https://w3id.org/identification#IdentificationDocumentCredential",
+    "IdentificationDocument": {
+      "@id": "https://w3id.org/identification#IdentificationDocument",
+      "@context": {
+        "@protected": true,
+        "documentNumber": {
+          "@id": "https://w3id.org/identification#documentNumber",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "issuer": {
+          "@id": "https://www.w3.org/2018/credentials#issuer",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "name": {
+          "@id": "https://schema.org/name",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "validUntil": {
+          "@id": "https://www.w3.org/2018/credentials#validUntil",
+          "@type": "http://www.w3.org/2001/XMLSchema#date"
+        }
+      }
+    },
+    "Person": {
+      "@id": "https://schema.org/Person",
+      "@context": {
+        "@protected": true,
+        "additionalName": {
+          "@id": "https://schema.org/additionalName",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "address": {
+          "@id": "https://w3id.org/identification#address",
+          "@type": "@id"
+        },
+        "birthDate": {
+          "@id": "https://schema.org/birthDate",
+          "@type": "http://www.w3.org/2001/XMLSchema#date"
+        },
+        "email": {
+          "@id": "https://schema.org/email",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "familyName": {
+          "@id": "https://w3id.org/identification#familyName",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "givenName": {
+          "@id": "https://schema.org/givenName",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "identificationDocument": {
+          "@id": "https://w3id.org/identification#identificationDocument",
+          "@type": "@id"
+        },
+        "image": {
+          "@id": "https://w3id.org/identification#image",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "name": {
+          "@id": "https://schema.org/name",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "telephone": {
+          "@id": "https://schema.org/telephone",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "worksFor": {
+          "@id": "https://schema.org/worksFor",
+          "@type": "@id"
+        }
+      }
+    },
+    "Organization": {
+      "@id": "https://schema.org/Organization",
+      "@context": {
+        "@protected": true,
+        "address": {
+          "@id": "https://w3id.org/identification#address",
+          "@type": "@id"
+        },
+        "department": {
+          "@id": "https://schema.org/department",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "description": {
+          "@id": "https://schema.org/description",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "email": {
+          "@id": "https://schema.org/email",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "logo": {
+          "@id": "https://schema.org/logo",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "name": {
+          "@id": "https://schema.org/name",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "telephone": {
+          "@id": "https://schema.org/telephone",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "url": {
+          "@id": "https://schema.org/url",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        }
+      }
+    },
+    "PostalAddress": {
+      "@id": "https://schema.org/PostalAddress",
+      "@context": {
+        "@protected": true,
+        "addressCountry": {
+          "@id": "https://schema.org/addressCountry",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "addressLocality": {
+          "@id": "https://schema.org/addressLocality",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "addressRegion": {
+          "@id": "https://schema.org/addressRegion",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "postalCode": {
+          "@id": "https://schema.org/postalCode",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "streetAddress": {
+          "@id": "https://schema.org/streetAddress",
+          "@type": "http://www.w3.org/2001/XMLSchema#string"
+        }
+      }
+    },
+    "id": "@id",
+    "type": "@type"
+  }
+}
