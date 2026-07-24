@@ -128,7 +128,7 @@ class:
             "givenName": "Rick",
             "familyName": "Smith",
             "additionalName": "Jimmy",
-            "birthDate": "1982-02-30",
+            "birthDate": "1982-02-28",
             "email": "rick.smith@email.example",
             "telephone": "+15552345678",
             "image": "https://images.example/ricksmith.jpg",
@@ -144,7 +144,7 @@ class:
               "type": "IdentificationDocument",
               "name": "Utopia Driver's License",
               "documentNumber": "U987654321",
-              "validUntil": "2029-02-30",
+              "validUntil": "2029-02-28",
               "issuer": {
                 "id": "did:web:dmv.utopia.example",
                 "name": "Utopia Department of Motor Vehicles"
