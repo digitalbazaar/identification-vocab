@@ -14,13 +14,12 @@
           "@id": "https://www.w3.org/2018/credentials#issuer",
           "@type": "http://www.w3.org/2001/XMLSchema#string"
         },
-        "name": {
-          "@id": "https://schema.org/name",
-          "@type": "http://www.w3.org/2001/XMLSchema#string"
-        },
         "validUntil": {
           "@id": "https://www.w3.org/2018/credentials#validUntil",
           "@type": "http://www.w3.org/2001/XMLSchema#date"
+        },
+        "name": {
+          "@id": "https://schema.org/name"
         }
       }
     },
@@ -60,10 +59,6 @@
           "@id": "https://w3id.org/identification#image",
           "@type": "http://www.w3.org/2001/XMLSchema#string"
         },
-        "name": {
-          "@id": "https://schema.org/name",
-          "@type": "http://www.w3.org/2001/XMLSchema#string"
-        },
         "telephone": {
           "@id": "https://schema.org/telephone",
           "@type": "http://www.w3.org/2001/XMLSchema#string"
@@ -71,6 +66,9 @@
         "worksFor": {
           "@id": "https://schema.org/worksFor",
           "@type": "@id"
+        },
+        "name": {
+          "@id": "https://schema.org/name"
         }
       }
     },
@@ -86,20 +84,12 @@
           "@id": "https://schema.org/department",
           "@type": "http://www.w3.org/2001/XMLSchema#string"
         },
-        "description": {
-          "@id": "https://schema.org/description",
-          "@type": "http://www.w3.org/2001/XMLSchema#string"
-        },
         "email": {
           "@id": "https://schema.org/email",
           "@type": "http://www.w3.org/2001/XMLSchema#string"
         },
         "logo": {
           "@id": "https://schema.org/logo",
-          "@type": "http://www.w3.org/2001/XMLSchema#string"
-        },
-        "name": {
-          "@id": "https://schema.org/name",
           "@type": "http://www.w3.org/2001/XMLSchema#string"
         },
         "telephone": {
@@ -109,6 +99,12 @@
         "url": {
           "@id": "https://schema.org/url",
           "@type": "http://www.w3.org/2001/XMLSchema#string"
+        },
+        "name": {
+          "@id": "https://schema.org/name"
+        },
+        "description": {
+          "@id": "https://schema.org/description"
         }
       }
     },
