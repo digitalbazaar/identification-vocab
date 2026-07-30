@@ -41,7 +41,7 @@ class:
     comment: >-
       A credential that expresses identification information for a particular
       person that is issued by an authority of some sort.
-    context: https://w3id.org/identification/v1rc1
+    context: https://w3id.org/identification/v1rc2
     example:
       - label: >-
           A basic example of the identification document credential expressed as
@@ -50,7 +50,7 @@ class:
           {
             "@context": [
               "https://www.w3.org/ns/credentials/v2",
-              "https://w3id.org/identification/v1rc1"
+              "https://w3id.org/identification/v1rc2"
             ],
             "type": [
               "VerifiableCredential",
@@ -93,18 +93,18 @@ class:
     comment: >-
       A document that serves to verify the identity of an individual, such as a
       passport or a driver's license.
-    context: https://w3id.org/identification/v1rc1
+    context: https://w3id.org/identification/v1rc2
     example:
       - label: >-
           A basic example of the IdentificationDocument class expressed as
           JSON-LD.
         json: |-
           {
-            "@context": "https://w3id.org/identification/v1rc1",
+            "@context": "https://w3id.org/identification/v1rc2",
             "type": "IdentificationDocument",
             "name": "Utopia Driver's License",
             "documentNumber": "U123456789",
-            "validUntil": "2025-12-31"
+            "validUntil": "2025-12-31",
             "issuer": {
               "id": "did:web:dmv.utopia.example",
               "name": "Utopia Department of Motor Vehicles"
@@ -115,20 +115,20 @@ class:
     comment: >-
       A human being, typically distinguished from other animals by their
       capacity for language, reasoning, and social interaction.
-    context: https://w3id.org/identification/v1rc1
+    context: https://w3id.org/identification/v1rc2
     example:
       - label: >-
           A basic example of the Person class with a Driver's License expressed
           as JSON-LD.
         json: |-
           {
-            "@context": "https://w3id.org/identification/v1rc1",
+            "@context": "https://w3id.org/identification/v1rc2",
             "type": "Person",
             "name": "Rick Jimmy Smith",
             "givenName": "Rick",
             "familyName": "Smith",
             "additionalName": "Jimmy",
-            "birthDate": "1982-02-30",
+            "birthDate": "1982-02-28",
             "email": "rick.smith@email.example",
             "telephone": "+15552345678",
             "image": "https://images.example/ricksmith.jpg",
@@ -144,7 +144,7 @@ class:
               "type": "IdentificationDocument",
               "name": "Utopia Driver's License",
               "documentNumber": "U987654321",
-              "validUntil": "2029-02-30"
+              "validUntil": "2029-02-28",
               "issuer": {
                 "id": "did:web:dmv.utopia.example",
                 "name": "Utopia Department of Motor Vehicles"
@@ -156,7 +156,7 @@ class:
           JSON-LD.
         json: |-
           {
-            "@context": "https://w3id.org/identification/v1rc1",
+            "@context": "https://w3id.org/identification/v1rc2",
             "type": "Person",
             "name": ["John Doe", "Atohi"],
             "givenName": "John",
@@ -178,12 +178,60 @@ class:
               "type": "IdentificationDocument",
               "name": "Grasslands Tribal Identification Card",
               "documentNumber": "T1234567",
-              "validUntil": "2030-05-15"
+              "validUntil": "2030-05-15",
               "issuer": {
                 "id": "did:web:tribes.grasslands.example",
                 "name": "United Tribes of the Grasslands"
-              },
+              }
             }
+          }
+  - id: schema:Organization
+    label: Organization
+    comment: >-
+      An organization or agency, such as an employer, that a Person may be
+      associated with (for example, via worksFor).
+    context: https://w3id.org/identification/v1rc2
+    example:
+      - label: >-
+          A basic example of the Organization class expressed as JSON-LD.
+        json: |-
+          {
+            "@context": "https://w3id.org/identification/v1rc2",
+            "type": "Organization",
+            "name": "Utopia Department of Parks and Recreation",
+            "description": "Manages public parks and recreational programs.",
+            "department": "Facilities Maintenance",
+            "email": "info@parks.utopia.example",
+            "telephone": "+15552345678",
+            "url": "https://parks.utopia.example",
+            "logo": "https://parks.utopia.example/logo.png",
+            "address": {
+              "type": "PostalAddress",
+              "streetAddress": "1 Parks Way",
+              "addressLocality": "Anytown",
+              "addressRegion": "UA",
+              "postalCode": "12345",
+              "addressCountry": "UTO"
+            }
+          }
+  - id: schema:PostalAddress
+    label: Postal Address
+    comment: >-
+      A mailing address, per schema.org, used to express the address of a
+      Person or Organization.
+    context: https://w3id.org/identification/v1rc2
+    example:
+      - label: >-
+          A basic example of the PostalAddress class expressed as JSON-LD.
+        json: |-
+          {
+            "@context": "https://w3id.org/identification/v1rc2",
+            "type": "PostalAddress",
+            "streetAddress": "1 Parks Way",
+            "addressLocality": "Anytown",
+            "addressRegion": "UA",
+            "postalCode": "12345",
+            "addressCountry": "UTO"
           }
 property:
   - id: schema:additionalName
@@ -194,16 +242,39 @@ property:
       The property that specifies an additional name of the Person, Employer, or
       Attestor, which may include middle names or other names used in addition
       to the given name and family name.
-    context: https://w3id.org/identification/v1rc1
+    context: https://w3id.org/identification/v1rc2
   - id: address
     label: Address
     domain:
       - schema:Person
+      - schema:Organization
     range: schema:PostalAddress
     comment: >-
-      The property that specifies the address related to the Person, modeled as
-      a PostalAddress per schema.org specification.
-    context: https://w3id.org/identification/v1rc1
+      The property that specifies the address related to the Person or
+      Organization, modeled as a PostalAddress per schema.org specification.
+    context: https://w3id.org/identification/v1rc2
+  - id: schema:addressCountry
+    label: Address Country
+    domain: schema:PostalAddress
+    range: xsd:string
+    comment: The property that specifies the country of a PostalAddress.
+    context: https://w3id.org/identification/v1rc2
+  - id: schema:addressLocality
+    label: Address Locality
+    domain: schema:PostalAddress
+    range: xsd:string
+    comment: >-
+      The property that specifies the locality (e.g. city) of a
+      PostalAddress.
+    context: https://w3id.org/identification/v1rc2
+  - id: schema:addressRegion
+    label: Address Region
+    domain: schema:PostalAddress
+    range: xsd:string
+    comment: >-
+      The property that specifies the region (e.g. state or province) of a
+      PostalAddress.
+    context: https://w3id.org/identification/v1rc2
   - id: schema:birthDate
     label: Birth Date
     domain: schema:Person
@@ -211,21 +282,37 @@ property:
     comment: >-
       The property that specifies the birth date of the Person, representing the
       date on which the individual was born.
-    context: https://w3id.org/identification/v1rc1
+    context: https://w3id.org/identification/v1rc2
+  - id: schema:department
+    label: Department
+    domain: schema:Organization
+    range: xsd:string
+    comment: >-
+      The property that specifies a sub-organization or department within the
+      Organization.
+    context: https://w3id.org/identification/v1rc2
+  - id: schema:description
+    label: Description
+    domain: schema:Organization
+    range: xsd:string
+    comment: The property that specifies a description of the Organization.
+    context: https://w3id.org/identification/v1rc2
   - id: documentNumber
     label: Document Number
     domain: IdentificationDocument
     range: xsd:string
     comment: The number that uniquely identifies the identification document.
-    context: https://w3id.org/identification/v1rc1
+    context: https://w3id.org/identification/v1rc2
   - id: schema:email
     label: Email
-    domain: schema:Person
+    domain:
+      - schema:Person
+      - schema:Organization
     range: xsd:string
     comment: >-
-      The property that specifies the email address associated with the Person,
-      Employer, or Attestor, allowing for electronic communication.
-    context: https://w3id.org/identification/v1rc1
+      The property that specifies the email address associated with the Person
+      or Organization, allowing for electronic communication.
+    context: https://w3id.org/identification/v1rc2
   - id: familyName
     label: Family Name
     domain: schema:Person
@@ -233,7 +320,7 @@ property:
     comment: >-
       The property that specifies the family name of the Person, Employer, or
       Attestor, representing their last name or surname.
-    context: https://w3id.org/identification/v1rc1
+    context: https://w3id.org/identification/v1rc2
   - id: schema:givenName
     label: Given Name
     domain: schema:Person
@@ -241,7 +328,7 @@ property:
     comment: >-
       The property that specifies the given name of the Person, Employer, or
       Attestor, representing their first name or personal name.
-    context: https://w3id.org/identification/v1rc1
+    context: https://w3id.org/identification/v1rc2
   - id: identificationDocument
     label: Identification Document
     domain:
@@ -253,14 +340,14 @@ property:
       The property that specifies the identification document of the Person,
       which may include documents like driver's license, passport, or any
       official ID.
-    context: https://w3id.org/identification/v1rc1
+    context: https://w3id.org/identification/v1rc2
   - id: image
     label: Image
     domain:
       - schema:Person
     range: xsd:string
     comment: The property that specifies an image of the individual.
-    context: https://w3id.org/identification/v1rc1
+    context: https://w3id.org/identification/v1rc2
   - id: cred:issuer
     label: Issuer
     domain: IdentificationDocument
@@ -269,23 +356,52 @@ property:
       The property that specifies the name of the entity or organization that
       issued the identification document, providing context about the authority
       behind the document.
-    context: https://w3id.org/identification/v1rc1
+    context: https://w3id.org/identification/v1rc2
+  - id: schema:logo
+    label: Logo
+    domain: schema:Organization
+    range: xsd:string
+    comment: The property that specifies a URL to the Organization's logo image.
+    context: https://w3id.org/identification/v1rc2
   - id: schema:name
     label: Name
     domain:
       - schema:Person
       - IdentificationDocument
+      - schema:Organization
     range: xsd:string
-    comment: This property specifies the name associated with the person or document.
-    context: https://w3id.org/identification/v1rc1
+    comment: >-
+      This property specifies the name associated with the person,
+      organization, or document.
+    context: https://w3id.org/identification/v1rc2
+  - id: schema:postalCode
+    label: Postal Code
+    domain: schema:PostalAddress
+    range: xsd:string
+    comment: The property that specifies the postal code of a PostalAddress.
+    context: https://w3id.org/identification/v1rc2
+  - id: schema:streetAddress
+    label: Street Address
+    domain: schema:PostalAddress
+    range: xsd:string
+    comment: The property that specifies the street address of a PostalAddress.
+    context: https://w3id.org/identification/v1rc2
   - id: schema:telephone
     label: Telephone
-    domain: schema:Person
+    domain:
+      - schema:Person
+      - schema:Organization
     range: xsd:string
     comment: >-
       The property that specifies the telephone number associated with the
-      Person, enabling voice communication.
-    context: https://w3id.org/identification/v1rc1
+      Person or Organization, enabling voice communication.
+    context: https://w3id.org/identification/v1rc2
+  - id: schema:url
+    label: URL
+    domain: schema:Organization
+    range: xsd:string
+    comment: The property that specifies the Organization's website URL.
+    context: https://w3id.org/identification/v1rc2
   - id: cred:validUntil
     label: Valid Until
     domain: IdentificationDocument
@@ -293,4 +409,12 @@ property:
     comment: >-
       The property that specifies the expiration date of the identification
       document, indicating until when the document is considered valid.
-    context: https://w3id.org/identification/v1rc1
+    context: https://w3id.org/identification/v1rc2
+  - id: schema:worksFor
+    label: Works For
+    domain: schema:Person
+    range: schema:Organization
+    comment: >-
+      The property that specifies the organization or agency that employs the
+      Person, modeled as an Organization per schema.org specification.
+    context: https://w3id.org/identification/v1rc2
